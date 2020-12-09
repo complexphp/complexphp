@@ -1,13 +1,13 @@
 # Welcome to Complex PHP 0.1 Beta Version
 
-Complex PHP v-0.1 is PHP modified version to write make PHP and HTML more easier and responsive.
+Complex PHP v-0.1 is modified version of PHP  to make PHP and HTML more easier and responsive.
 
 
 # Why Complex PHP
 There are many reasons to use Complex PHP like:-
 
-- Include various of functions of Basic Functions, Regex Function, SQL Functions and HTML functions.
-- Better experience in writing HTML with many of html functions to make your work more professional.
+- Include various of Basic Functions, Regex Function, SQL Functions and HTML functions.
+- Better experience in writing HTML with many html functions to make your work more professional.
 
 
 # Getting Started
@@ -32,7 +32,7 @@ A simple example to use Complex PHP with html.
 		html('home.php');
 	?>
 
-Now We need home.php to load html file.
+Now We need home.php to load html file, ***Remember you can also use home.html file but this is highly not recommended due security issues.***
 
 **home.php**
 
@@ -46,7 +46,7 @@ Now We need home.php to load html file.
 	
 	</html>
 		
-Now, When We load **index.php** file it will give output like this :-
+Now, When we load **index.php** file it will give output like this :-
 
     <html><body><div class="myClass"></div></body></html>
 
@@ -69,129 +69,237 @@ Let's see unminfied output to understand more:-
  This output is now completly cleaned to understand now let's try some more functions to make html easier and proffesional.
     
 
-## Rename a file
+## How to write PHP in html file.
 
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+Calling `html()` will allow you to load html file in PHP but here is the question **How We are going to write PHP in our html file?**
 
-## Delete a file
+Let's have a look :-
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+**home.php**
+ 
+	<html>
+	   
+	   <?php
+		    echo "This is php code";
+	   ?>
+	    
+	    <body>
+			
+			<div class="myClass"></div>
+			
+	    </body>
+	
+	</html>
 
-## Export a file
+Yeah, I am sure you know this already *but in complex php **you can also write your php by using square brackets `[]` in html file**, Lets have a look :-*
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+**home.php**
 
+    <html>
+	   
+	  [
+		    echo "This is php code";
+	  ]
+	    
+	    <body>
+			
+			<div class="myClass"></div>
+			
+	    </body>
+	
+	</html>
 
-# Synchronization
+Yeah this is really cool, So lets explore more complex php features which will really impress you.
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+## **Use shortcode for functions**
 
-There are two types of synchronization and they can complement each other:
+You can save your time by using short functions in `[]`.
 
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
+ For example if you want to echo some text, You can use this :-
 
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+    [e: This is echo]
 
-## Open a file
+**home.php**
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
+    <html>
+	   
+	 [e: This is echo]
+	    
+	    <body>
+			
+			<div class="myClass"></div>
+			
+	    </body>
+	
+	</html>
+**Output: home.php (Clean)**
 
-## Save a file
+    <html>
+	   
+	 This is echo
+	    
+	    <body>
+			
+			<div class="myClass"></div>
+			
+	    </body>
+	
+	</html>
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
+Makesure you understood many of basic concepts of complex php, Now lets know some conditions of complex php `[]`.
 
-## Synchronize a file
+**1. You can use `[]` and `<?php ?>`  both in your html code file.**
 
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
+**home.php**
 
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
+    <html>
+		<body>
+			<h1>
+				<?php 
+					echo "This is H1";
+				?>
+			</h1>
+			<h1>
+				[
+					echo "This is H1";
+				]
+			</h1>
+		</body>
+	</html>
+**2. You can't use `[]` in  html file for html, javascript or css code, It will throw error.**
 
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
+For example:-
 
-## Manage file synchronization
+**home.php**
 
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+    <html>
+		<body>
+			<style>
+				input[type=text]
+				{	
+					background:pink;
+				}
+			</style>
+		
+			<input type="text" value="green"></input>
+			
+		</body>
+	</html>
 
+If you use `[]` for html, css or js like this:-
 
-# Publication
+		   <style>
+				input[type=text]
+				{	
+					background:pink;
+				}
+			</style>
+It will throw error, **So to prevent this error and use `[]` for html, css and js you have to use double square brackets `[[]]` like this :-**
 
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
+       <style>
+				input[[type=text]]
+				{	
+					background:pink;
+				}
+		</style>
+Don't worry output will be same as we want :-
 
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
+        <style>
+				input[type=text]
+				{	
+					background:pink;
+				}
+		</style>
+Let's understand with better example:-
 
-## Publish a File
+    <html>
+		<body>
+			<style>
+				input[[type=text]]
+				{	
+					background:pink;
+				}
+			</style>
+		
+			<input type="text" value="green"></input>
+			
+			<h1>I like Sea Foods [[Fish]]</h1> // Output: I like Sea Foods [Fish] 
+			
+			<h1>[[e: Fish]]</h1> // Output: [e: Fish]
+			
+			<h1>[e: Fish]</h1> // Output: Fish
+			
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			
+			<script>
+				
+				$('h1')[[0]].css('background', 'green'); 
+				
+				// Output: $('h1')[0].css('background', 'green');
+			
+			</script>
+			
+		</body>
+	</html>
 
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
+So In easy words using `[]` will return to complex php but using `[[]]` will return to `[]` .
 
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
+**3. You can't use `;` in short codes.**
 
-## Update a publication
+If you use `;`  in short codes it will return error,
 
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
+    [e: MyText;] // Will throw error
 
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
+To prevent this use `;.`  or nothing.
 
-## Manage file publication
+    [e: MyText] // output: MyText
+    [e: MyText;.] // output: MyText
 
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
+Keep in mind, above rule is just for complex php short codes not for php code.
 
+    [echo "MyText";] //output: MyText
+    [echo "MyText";.] // Will throw error
 
-# Markdown extensions
+**So In easy words `;.` is just used for complex php short codes.**
 
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
+    [e: "MyText"][e: "World"] // output: MyTextWorld
+    
+    [e: "MyText";. e: "World"] // output: MyTextWorld
+	
+	[e: "MyText";. echo "World";] // output: MyTextWorld
+	
+	[echo "Hello"; e: "MyText";. echo "World";] // output HelloMyTextWorld
+    
+So from above example, Hope you understood everythings about shortcode complex php.
 
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
+**4. You can't use `[]` under complex php double brackets.**
 
+    [echo $_GET['q']; // Output: Error
 
-## SmartyPants
+You can't use square brackets `[]` under complex php square brackets.
 
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
+If you want to use square brackets `[]` use `[[]]`to prevent error.
 
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+    [echo $_GET[['q']]; ] // Output: $_GET['q']
 
+Or, Just use php tag `<?php ?>` use square brackets `[]`.
 
-## KaTeX
+    <?php
+    
+	    echo $_GET['q'];
+	    
+	 ?>
 
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
+*From above example, *We can understand that square brackets `[]` can be used under `<?php ?>` tags but If you want to use in complex php bracket use `[[]]`.**
 
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
+## Complex Functions
 
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
+Complex Functions will really make complexity to easy. So lets know about complex functions.
 
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
+|Function|Use|Parameter
+|--|--|--|
+|`e()`|`e()` is used to echo string.|`e(string)`
+|`c()`  |`c()` is used to hide class name of html element or javascript function name.|`c(string)`
+|`randomToken()` | `randomToken()` is used to generate random token.|`randomToken(length, chars)
+`
