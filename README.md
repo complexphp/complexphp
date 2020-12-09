@@ -301,5 +301,5 @@ Complex Functions will really make complexity to easy. So lets know about comple
 |--|--|--|
 |`e()`|`e()` is used to echo string.|`e(string)`
 |`c()`  |`c()` is used to hide class name of html element or javascript function name.|`c(string)`
-|`randomToken()` | `randomToken()` is used to generate random token.|`randomToken(length, chars)
+|`randomToken()` | `randomToken()` is used to generate random token.|`randomToken(length, chars)`
 `
